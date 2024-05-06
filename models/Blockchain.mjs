@@ -1,6 +1,7 @@
 import { createHash } from '../utilities/crypto-lib.mjs';
 import Block from './Block.mjs';
 import FileHandler from '../utilities/fileHandler.mjs';
+import { handleError, log } from '../utilities/errorHandler.mjs';
 
 export default class Blockchain {
   constructor() {
@@ -21,6 +22,10 @@ export default class Blockchain {
     data,
     difficulty,
   ) {
+    if (typeof data !== 'object') {
+      handleError('Data must be an object');
+    }
+
     const block = new Block(
       timestamp,
       this.chain.length + 1,
@@ -31,10 +36,10 @@ export default class Blockchain {
     );
 
     this.chain.push(block);
+    log('Block created');
 
     return block;
   }
-
   writeToFile() {
     this.fileHandler.write(this.chain);
   }

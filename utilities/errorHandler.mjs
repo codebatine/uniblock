@@ -1,5 +1,19 @@
 import fs from 'fs';
 import path from 'path';
+import url from 'url';
+
+const __appdir = path.dirname(path.dirname(url.fileURLToPath(import.meta.url)));
+
+export const handleError = (message) => {
+  const filePath = path.join(__appdir, 'logs', 'error.log');
+  const timestamp = new Date().toISOString();
+
+  const logMessage = `${timestamp} - Error: ${message}\n`;
+
+  fs.appendFileSync(filePath, logMessage);
+
+  throw new Error(message);
+};
 
 const errorHandler = (err, req, res, next) => {
   const filePath = path.join(__appdir, 'logs', 'error.log');
@@ -21,3 +35,12 @@ const errorHandler = (err, req, res, next) => {
 };
 
 export default errorHandler;
+
+export const log = (message) => {
+  const filePath = path.join(__appdir, 'logs', 'app.log');
+  const timestamp = new Date().toISOString();
+
+  const logMessage = `${timestamp} - Log: ${message}\n`;
+
+  fs.appendFileSync(filePath, logMessage);
+};
