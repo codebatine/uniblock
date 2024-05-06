@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import errorHandler from './middleware/errorHandler.mjs';
+import errorHandler from './utilities/errorHandler.mjs';
 import blockchainRouter from './routes/blockchain-routes.mjs';
 import ErrorResponse from './utilities/ErrorResponseModel.mjs';
 import {
