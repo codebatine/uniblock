@@ -239,6 +239,14 @@
       "currentBlockHash": "0006b1e75a2e86577bb5dd9ac7e737193695d0c90a702d20814917cd2e5de09d",
       "data": {},
       "difficulty": 3
+    },
+    {
+      "timestamp": 1715262409561,
+      "blockIndex": 31,
+      "previousBlockHash": "0006b1e75a2e86577bb5dd9ac7e737193695d0c90a702d20814917cd2e5de09d",
+      "currentBlockHash": "00ae62db6931c4ed5de2d75534cd8245d41c189258aabd896545cbc5186b5e6e",
+      "data": {},
+      "difficulty": 2
     }
   ]
 }
